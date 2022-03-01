@@ -1,15 +1,8 @@
 import * as model from "./model.js";
 import * as selectors from "./selectors.js";
+import * as view from "./view.js";
 
-selectors.searchBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  selectors.booksContainer.innerHTML = "";
-  model.getBook(selectors.searchInput.value);
-  selectors.searchInput.value = "";
-});
-
-// selectors.booksContainer.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   if (e.target.classList.contains("add_btn")) {
-//   }
-// });
+view.addClickHandler(selectors.searchBtn, model.searchBooks);
+view.addClickHandler(selectors.booksContainer, model.addToCart);
+view.addClickHandler(selectors.cart, model.removeFromCart);
+view.addClickHandler(selectors.shopingCart, view.cartDropdown);
