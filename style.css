@@ -166,16 +166,69 @@ header {
   background-color: #333;
 }
 
-.buy_info {
+.buy_form {
   width: 80rem;
   height: 50rem;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   position: absolute;
-  background-color: #000;
+  background-color: #fff;
   z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border: 2px solid #333;
 }
+
+.buy_form button {
+  height: 10rem;
+  width: 40rem;
+  font-size: 4rem;
+  border: 2px solid #333;
+  border-top: none;
+  cursor: pointer;
+}
+
+.buy_form input {
+  color: #000;
+  width: 40rem;
+  height: 4rem;
+  outline: none;
+  background-color: #fff;
+  border: 2px solid #333;
+  border-top: none;
+  padding: 0 3rem;
+  font-size: 2rem;
+  font-style: oblique;
+}
+
+.buy_form p {
+  font-size: 2rem;
+}
+
+.close {
+  position: absolute;
+  top: 3rem;
+  right: 5rem;
+  cursor: pointer;
+}
+
+.close div {
+  height: 1rem;
+  width: 5rem;
+  background-color: #000;
+  margin: 2rem 0;
+}
+
+.close div:nth-child(1) {
+  transform: rotate(136deg) translateY(-20.5px);
+}
+.close div:nth-child(2) {
+  transform: rotate(-136deg) translateY(20.5px);
+}
+
 /* HERO */
 
 .hero {
@@ -330,4 +383,8 @@ header {
   opacity: 1;
   transform: translateY(0);
   z-index: 2;
+}
+
+.hidden {
+  display: none;
 }

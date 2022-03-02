@@ -49,8 +49,6 @@ function renderBook(id, title) {
 export function addToCart(e) {
   e.preventDefault();
   if (e.target.classList.contains("add_btn")) {
-    selectors.cartSumm.textContent = +selectors.cartSumm.textContent + 1;
-
     const book = e.target.closest(".book");
     const img = book.querySelector("img").getAttribute("src");
     const title = book.querySelector("h3").textContent;
@@ -61,7 +59,10 @@ export function addToCart(e) {
       orderedBookTemplate(img, title, price)
     );
 
+    selectors.buyTotal.textContent = "";
+    selectors.cartSumm.textContent = +selectors.cartSumm.textContent + 1;
     selectors.totalSumm.textContent = +selectors.totalSumm.textContent + +price;
+    selectors.buyTotal.textContent = +selectors.totalSumm.textContent;
   }
 }
 
@@ -71,8 +72,9 @@ export function removeFromCart(e) {
     const book = e.target.closest(".ordered_book");
     const price = book.querySelector("p").textContent.slice(1);
 
-    selectors.totalSumm.textContent = +selectors.totalSumm.textContent - +price;
     selectors.cartSumm.textContent = +selectors.cartSumm.textContent - 1;
+    selectors.totalSumm.textContent = +selectors.totalSumm.textContent - +price;
+    selectors.buyTotal.textContent = +selectors.totalSumm.textContent;
 
     book.outerHTML = "";
   }
@@ -83,4 +85,16 @@ export function searchBooks(e) {
   selectors.booksContainer.innerHTML = "";
   getBook(selectors.searchInput.value);
   selectors.searchInput.value = "";
+}
+
+export function confirmBuy(e) {
+  e.preventDefault();
+
+  if (selectors.emailInput.value !== "" && selectors.nameInput.value !== "") {
+    selectors.emailInput.value = selectors.nameInput.value = "";
+    selectors.buyTotal.textContent = "Succes";
+    selectors.orderedBooks.innerHTML = "";
+    selectors.cartSumm.textContent = 0;
+    selectors.totalSumm.textContent = 0;
+  }
 }
