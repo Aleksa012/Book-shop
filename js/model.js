@@ -58,7 +58,7 @@ export function addToCart(e) {
       "beforeend",
       orderedBookTemplate(img, title, price)
     );
-
+    selectors.buyForm.querySelector("span").textContent = "$";
     selectors.buyTotal.textContent = "";
     selectors.cartSumm.textContent = +selectors.cartSumm.textContent + 1;
     selectors.totalSumm.textContent = +selectors.totalSumm.textContent + +price;
@@ -93,6 +93,7 @@ export function confirmBuy(e) {
   if (selectors.emailInput.value !== "" && selectors.nameInput.value !== "") {
     selectors.emailInput.value = selectors.nameInput.value = "";
     selectors.buyTotal.textContent = "Succes";
+    selectors.buyForm.querySelector("span").textContent = "";
     selectors.orderedBooks.innerHTML = "";
     selectors.cartSumm.textContent = 0;
     selectors.totalSumm.textContent = 0;

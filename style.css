@@ -27,34 +27,11 @@ header {
   align-items: center;
   border: 2px solid #333;
   border-top: none;
-  /* animation: showNav 0.6s linear; */
+  animation: showNav 0.6s linear;
 }
 
 .nav_logo {
   font-size: 4rem;
-}
-
-.nav_list {
-  display: flex;
-  align-items: center;
-  list-style: none;
-}
-
-.nav_item {
-  margin: 0 1rem;
-}
-
-.nav_link {
-  text-decoration: none;
-  font-size: 2rem;
-  color: #000;
-  border-bottom: 1px solid;
-  padding: 0.5rem 1rem;
-  transition: 0.3s all ease-out;
-}
-.nav_link:hover {
-  background-color: #000;
-  color: #fff;
 }
 
 .shoping_cart {
@@ -251,17 +228,10 @@ header {
   background-color: #f2f2f2;
 }
 
-.something {
-  height: 100%;
-  width: 20%;
-  border: none;
-  border-right: 2px solid #333;
-}
-
 .main {
   color: #f2f2f2;
   height: 60rem;
-  width: 80%;
+  width: 100%;
   position: relative;
 }
 
@@ -279,6 +249,7 @@ header {
 .search_books_form h2 {
   color: #000;
   font-size: 2.5rem;
+  padding-left: 3rem;
 }
 .wraper {
   display: flex;
@@ -328,14 +299,21 @@ header {
   border: 2px solid #333;
   border-bottom: none;
   height: 48rem;
+  min-width: 20rem;
   overflow: auto;
-  display: flex;
+  display: grid;
   justify-items: center;
-  flex-wrap: wrap;
-  padding: 5rem 10rem;
+  grid-template-columns: repeat(3, 1fr);
+  padding: 5rem;
   padding-bottom: 0;
 }
+.books::-webkit-scrollbar {
+  background-color: #000000;
+}
 
+.books::-webkit-scrollbar-thumb {
+  background-color: #f2f2f2;
+}
 .book {
   height: 35rem;
   color: #000;
@@ -361,7 +339,6 @@ header {
 .book p {
   font-size: 1.2rem;
   padding: 0.5rem;
-  cursor: pointer;
 }
 .book button {
   font-size: 2rem;
@@ -387,4 +364,32 @@ header {
 
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: 1300px) {
+  .books {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2rem;
+  }
+}
+@media screen and (max-width: 900px) {
+  .hero {
+    padding: 3rem;
+  }
+  .search_books_form h2 {
+    font-size: 2rem;
+  }
+  .search_input {
+    width: 20rem;
+  }
+  .content_container {
+    min-width: 40rem;
+  }
+  .books {
+    grid-template-columns: repeat(1, 1fr);
+    min-width: 30rem;
+  }
+  .main {
+    min-width: 40rem;
+  }
 }
