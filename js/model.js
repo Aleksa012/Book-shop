@@ -1,6 +1,7 @@
 import * as selectors from "./selectors.js";
 
-const bookTemplate = function (img, title, price = 99) {
+const bookTemplate = function (img, title) {
+  const price = Math.trunc(Math.random() * 80) + 20;
   return `
   <div class="book">
     <img src="${img}" alt="" />
